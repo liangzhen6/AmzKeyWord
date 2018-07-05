@@ -5,9 +5,17 @@ from xlutils.copy import copy
 from download import request
 from bs4 import BeautifulSoup
 import time
-originPath = os.path.abspath('.')
-xlsPath = os.path.join(originPath,'words rug pad.xls')
+import platform
 
+system = platform.system()
+xlsPath = ''
+#根据系统识别路径
+if system == 'Darwin':#mac
+	originPath = os.path.abspath('.')
+	xlsPath = os.path.join(originPath,'words rug pad.xls')
+elif system == 'Windows':
+	originPath = 'C:/Users/Administrator/Desktop/amzkeyword'
+	xlsPath = os.path.join(originPath,'words rug pad.xls')
 
 
 #保存xls表格
